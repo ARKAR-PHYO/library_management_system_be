@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Books {
+  id            String         @id @default(uuid())
+  title         String?
+  ISBN          Int?
+  summary       String?
+  image         String?
+  publisher     String?
+  no_of_copies  Int?
+  sources       String?
+  price         String?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @default(now())
+  issue_record  IssueRecord[]
+  return_record ReturnRecord[]
+  author        Author[]
+  employee      Employees[]
+}
+
+model Author {
+  id        String      @id @default(uuid())
+  name      String?
+  biography String?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @default(now())
+  book      Books[]
+  employee  Employees[]
+}
+
+model Employees {
+  id              String         @id @default(uuid())
+  name            String?
+  bio             String?
+  email           String?
+  phone_number    String?
+  address         String?
+  nrc             String?
+  dob             String?
+  password        String?
+  profile_picture String?
+  barcode         String?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @default(now())
+  employee_type   EmployeeTypes  @default(employee)
+  issue_record    IssueRecord[]
+  return_record   ReturnRecord[]
+  book            Books[]
+  author          Author[]
+  user            User[]
+}
+
+enum EmployeeTypes {
+  super_admin
+  admin
+  employee
+}
+
+model User {
+  id              String         @id @default(uuid())
+  name            String
+  bio             String?
+  email           String?
+  phone_number    String?
+  address         String?
+  nrc             String?
+  dob             String?
+  gender          String?
+  profile_picture String?
+  barcode         String?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @default(now())
+  issue_record    IssueRecord[]
+  return_record   ReturnRecord[]
+  employee        Employees[]
+}
+
+model IssueRecord {
+  id         String      @id @default(uuid())
+  issue_date DateTime?
+  due_date   DateTime?
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @default(now())
+  user       User[]
+  book       Books[]
+  employee   Employees[]
+}
+
+model ReturnRecord {
+  id          String      @id @default(uuid())
+  return_date DateTime?
+  user        User[]
+  book        Books[]
+  employee    Employees[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @default(now())
+}

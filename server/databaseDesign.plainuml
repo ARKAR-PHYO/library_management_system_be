@@ -1,0 +1,109 @@
+@startuml
+
+skinparam linetype ortho
+
+enum EmployeeTypes {
+  super_admin
+  admin
+  employee
+}
+
+entity Books {
+  * id: String
+  title: String?
+  ISBN: Int?
+  summary: String?
+  image: String?
+  publisher: String?
+  no_of_copies: Int?
+  sources: String?
+  price: String?
+  * createdAt: DateTime
+  * updatedAt: DateTime
+  * issue_record: IssueRecord[]
+  * return_record: ReturnRecord[]
+  * author: Author[]
+  * employee: Employees[]
+}
+
+entity Author {
+  * id: String
+  name: String?
+  biography: String?
+  * createdAt: DateTime
+  * updatedAt: DateTime
+  * book: Books[]
+  * employee: Employees[]
+}
+
+entity Employees {
+  * id: String
+  name: String?
+  bio: String?
+  email: String?
+  phone_number: String?
+  address: String?
+  nrc: String?
+  dob: String?
+  password: String?
+  profile_picture: String?
+  barcode: String?
+  * createdAt: DateTime
+  * updatedAt: DateTime
+  * employee_type: EmployeeTypes
+  * issue_record: IssueRecord[]
+  * return_record: ReturnRecord[]
+  * book: Books[]
+  * author: Author[]
+  * user: User[]
+}
+
+entity User {
+  * id: String
+  * name: String
+  bio: String?
+  email: String?
+  phone_number: String?
+  address: String?
+  nrc: String?
+  dob: String?
+  gender: String?
+  profile_picture: String?
+  barcode: String?
+  * createdAt: DateTime
+  * updatedAt: DateTime
+  * issue_record: IssueRecord[]
+  * return_record: ReturnRecord[]
+  * employee: Employees[]
+}
+
+entity IssueRecord {
+  * id: String
+  issue_date: DateTime?
+  due_date: DateTime?
+  * createdAt: DateTime
+  * updatedAt: DateTime
+  * user: User[]
+  * book: Books[]
+  * employee: Employees[]
+}
+
+entity ReturnRecord {
+  * id: String
+  return_date: DateTime?
+  * user: User[]
+  * book: Books[]
+  * employee: Employees[]
+  * createdAt: DateTime
+  * updatedAt: DateTime
+}
+
+Books }|..|{ IssueRecord
+Books }|..|{ Author
+Books }|..|{ Employees
+Employees }|..|{ User
+Books }|..|{ IssueRecord
+Books }|..|{ ReturnRecord
+Employees ||..|| EmployeeTypes
+
+@enduml
