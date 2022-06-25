@@ -6,11 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const cors_1 = __importDefault(require("cors"));
 const express_1 = __importDefault(require("express"));
 const config_1 = require("./config");
+const employeeRouter_1 = require("./router/employeeRouter");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, cors_1.default)());
 app.listen(config_1.SERVER_PORT, () => {
     console.log(`Server is running at http://${config_1.SERVER_DOMAIN}:${config_1.SERVER_PORT}`);
+    // ROUTES
+    app.use("/api/employees", employeeRouter_1.employeeRouter);
 });
 //# sourceMappingURL=app.js.map

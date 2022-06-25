@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.verifyToken = exports.signinToken = exports.comparePassword = exports.hashedPassword = void 0;
+exports.verifyToken = exports.signinToken = exports.comparedPassword = exports.hashedPassword = void 0;
 const bcrypt_1 = require("bcrypt");
 const jsonwebtoken_1 = require("jsonwebtoken");
 const config_1 = require("../config");
@@ -9,13 +9,13 @@ const hashedPassword = (password) => {
     return hashPassword;
 };
 exports.hashedPassword = hashedPassword;
-const comparePassword = (password, hashedPassword) => {
+const comparedPassword = (password, hashedPassword) => {
     const comparePassword = (0, bcrypt_1.compareSync)(password, hashedPassword);
     return comparePassword;
 };
-exports.comparePassword = comparePassword;
-const signinToken = (user) => {
-    const accessToken = (0, jsonwebtoken_1.sign)(user, config_1.JWT_SECRET, { expiresIn: "1d" });
+exports.comparedPassword = comparedPassword;
+const signinToken = (employees) => {
+    const accessToken = (0, jsonwebtoken_1.sign)(employees, config_1.JWT_SECRET, { expiresIn: "1d" });
     return accessToken;
 };
 exports.signinToken = signinToken;

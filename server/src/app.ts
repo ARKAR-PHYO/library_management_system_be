@@ -1,7 +1,7 @@
 import cors from "cors";
 import express from "express";
-import { SERVER_PORT,SERVER_DOMAIN } from "./config";
-
+import { SERVER_PORT, SERVER_DOMAIN } from "./config";
+import { employeeRouter } from "./router/employeeRouter";
 
 const app = express();
 
@@ -12,4 +12,7 @@ app.use(cors());
 
 app.listen(SERVER_PORT, () => {
   console.log(`Server is running at http://${SERVER_DOMAIN}:${SERVER_PORT}`);
+
+  // ROUTES
+  app.use("/api/employees", employeeRouter);
 });

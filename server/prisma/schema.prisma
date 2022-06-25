@@ -42,12 +42,12 @@ model Employees {
   id              String         @id @default(uuid())
   name            String?
   bio             String?
-  email           String?
+  email           String
   phone_number    String?
   address         String?
   nrc             String?
   dob             String?
-  password        String?
+  password        String
   profile_picture String?
   barcode         String?
   createdAt       DateTime       @default(now())

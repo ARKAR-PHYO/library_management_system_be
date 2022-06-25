@@ -1,14 +1,14 @@
 import { compareSync, hashSync } from "bcrypt";
 import { sign, verify } from "jsonwebtoken";
 import { JWT_SECRET } from "../config";
-import { User } from "../types";
+import { Employees } from "../types";
 
 export const hashedPassword = (password: string): string => {
   const hashPassword = hashSync(password, 12);
   return hashPassword;
 };
 
-export const comparePassword = (
+export const comparedPassword = (
   password: string,
   hashedPassword: string
 ): boolean => {
@@ -16,8 +16,8 @@ export const comparePassword = (
   return comparePassword;
 };
 
-export const signinToken = (user: User) => {
-  const accessToken = sign(user, JWT_SECRET, { expiresIn: "1d" });
+export const signinToken = (employees: Employees) => {
+  const accessToken = sign(employees, JWT_SECRET, { expiresIn: "1d" });
   return accessToken;
 };
 
