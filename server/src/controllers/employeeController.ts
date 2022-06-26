@@ -68,7 +68,6 @@ export const authorizedEmployee = async (
 ) => {
   try {
     const employee = req.employee;
-    console.log("emploee on Controller ->", employee);
 
     res.status(200).json({
       statusCode: 200,
