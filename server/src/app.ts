@@ -3,6 +3,7 @@ import express from "express";
 import { SERVER_PORT, SERVER_DOMAIN } from "./config";
 import { authorRouter } from "./router/authorRouter";
 import { employeeRouter } from "./router/employeeRouter";
+import { bookRouter } from "./router/bookRouter";
 
 const app = express();
 
@@ -17,4 +18,5 @@ app.listen(SERVER_PORT, () => {
   // ROUTES
   app.use("/api/employees", employeeRouter);
   app.use("/api/authors", authorRouter);
+  app.use("/api/books", bookRouter);
 });

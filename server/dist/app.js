@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const config_1 = require("./config");
 const authorRouter_1 = require("./router/authorRouter");
 const employeeRouter_1 = require("./router/employeeRouter");
+const bookRouter_1 = require("./router/bookRouter");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
@@ -17,5 +18,6 @@ app.listen(config_1.SERVER_PORT, () => {
     // ROUTES
     app.use("/api/employees", employeeRouter_1.employeeRouter);
     app.use("/api/authors", authorRouter_1.authorRouter);
+    app.use("/api/books", bookRouter_1.bookRouter);
 });
 //# sourceMappingURL=app.js.map
