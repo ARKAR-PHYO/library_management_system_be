@@ -11,19 +11,21 @@ enum EmployeeTypes {
 entity Books {
   * id: String
   title: String?
-  ISBN: Int?
+  ISBN: String?
   summary: String?
   image: String?
   publisher: String?
-  no_of_copies: Int?
+  no_of_copies: String?
   sources: String?
   price: String?
   * createdAt: DateTime
   * updatedAt: DateTime
   * issue_record: IssueRecord[]
   * return_record: ReturnRecord[]
-  * author: Author[]
-  * employee: Employees[]
+  * author_id: String
+  * employee_id: String
+  * employee: Employees
+  * author: Author
 }
 
 entity Author {
@@ -33,19 +35,20 @@ entity Author {
   * createdAt: DateTime
   * updatedAt: DateTime
   * book: Books[]
-  * employee: Employees[]
+  * employee: Employees
+  * employee_id: String
 }
 
 entity Employees {
   * id: String
   name: String?
   bio: String?
-  email: String?
+  * email: String
   phone_number: String?
   address: String?
   nrc: String?
   dob: String?
-  password: String?
+  * password: String
   profile_picture: String?
   barcode: String?
   * createdAt: DateTime
@@ -99,8 +102,8 @@ entity ReturnRecord {
 }
 
 Books }|..|{ IssueRecord
-Books }|..|{ Author
-Books }|..|{ Employees
+Books }|..|| Author
+Books }|..|| Employees
 Employees }|..|{ User
 Books }|..|{ IssueRecord
 Books }|..|{ ReturnRecord
