@@ -1,5 +1,9 @@
 # library_management_system_be
 
+### Api Postman collection
+
+This Repository include postman collection on root directory and fell free to test api. Thanks
+
 ## Installation
 
 clone repository

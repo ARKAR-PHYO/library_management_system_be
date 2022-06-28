@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "26410cc8-c53f-431c-b147-15419180c0d1",
+		"name": "Version1.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15231412"
+	},
+	"item": [
+		{
+			"name": "Employee Signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"super_admin@admin.com\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/{{employees}}/signin",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"{{employees}}",
+						"signin"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Employee Signin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"super_admin@admin.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/{{employees}}/signin",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"{{employees}}",
+								"signin"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get Authorized Employee",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AuthorizationPrefiz}} {{employeeToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{BaseURL}}/{{employees}}/authorizedEmployee",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"{{employees}}",
+						"authorizedEmployee"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Authorized Employee",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationPrefiz}} {{employeeToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/{{employees}}/authorizedEmployee",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"{{employees}}",
+								"authorizedEmployee"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Create Author",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AuthorizationPrefiz}} {{employeeToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Khaled Hosseini\",\n    \"biography\": \"Khaled Hosseini was born in Kabul, Afghanistan, in 1965. His father was a diplomat with the Afghan Foreign Ministry and his mother taught Farsi and History at a large high school in Kabul. In 1970, the Foreign Ministry sent his family to Tehran, where his father worked for the Afghan embassy. They lived in Tehran until 1973, at which point they returned to Kabul. In July of 1973, on the night Hosseini’s youngest brother was born, the Afghan king, Zahir Shah, was overthrown in a bloodless coup by the king’s cousin, Daoud Khan. At the time, Hosseini was in fourth grade and was already drawn to poetry and prose; he read a great deal of Persian poetry as well as Farsi translations of novels ranging from Alice in Wonderland to Mickey Spillane’s Mike Hammer series. In 1976, the Afghan Foreign Ministry once again relocated the Hosseini family, this time to Paris. They were ready to return to Kabul in 1980, but by then Afghanistan had already witnessed a bloody communist coup and the invasion of the Soviet army. The Hosseinis sought and were granted political asylum in the United States. In September of 1980, Hosseini’s family moved to San Jose, California. They lived on welfare and food stamps for a short while, as they had lost all of their property in Afghanistan. His father took multiple jobs and managed to get his family off welfare. Hosseini graduated from high school in 1984 and enrolled at Santa Clara University where he earned a bachelor’s degree in Biology in 1988. The following year, he entered the University of California-San Diego’s School of Medicine, where he earned a Medical Degree in 1993. He completed his residency at Cedars-Sinai Hospital in Los Angeles and began practicing Internal Medicine in 1996. His first love, however, has always been writing. Hosseini has vivid, and fond, memories of peaceful pre-Soviet era Afghanistan, as well as of his personal experiences with Afghan Hazaras. One Hazara in particular was a thirty-year-old man named Hossein Khan, who worked for the Hosseinis when they were living in Iran. When Hosseini was in the third grade, he taught Khan to read and write. Though his relationship with Hossein Khan was brief and rather formal, Hosseini always remembered the fondness that developed between them. In 2006, Hosseini was named a goodwill envoy to the UNHCR, The United Nations Refugee Agency.\",\n    \"employee_id\": \"359f60ec-e1eb-4f26-a29f-4c271b2c5b7a\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/{{authors}}/createAuthor",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"{{authors}}",
+						"createAuthor"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Author",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationPrefiz}} {{employeeToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Khaled Hosseini\",\n    \"biography\": \"Khaled Hosseini was born in Kabul, Afghanistan, in 1965. His father was a diplomat with the Afghan Foreign Ministry and his mother taught Farsi and History at a large high school in Kabul. In 1970, the Foreign Ministry sent his family to Tehran, where his father worked for the Afghan embassy. They lived in Tehran until 1973, at which point they returned to Kabul. In July of 1973, on the night Hosseini’s youngest brother was born, the Afghan king, Zahir Shah, was overthrown in a bloodless coup by the king’s cousin, Daoud Khan. At the time, Hosseini was in fourth grade and was already drawn to poetry and prose; he read a great deal of Persian poetry as well as Farsi translations of novels ranging from Alice in Wonderland to Mickey Spillane’s Mike Hammer series. In 1976, the Afghan Foreign Ministry once again relocated the Hosseini family, this time to Paris. They were ready to return to Kabul in 1980, but by then Afghanistan had already witnessed a bloody communist coup and the invasion of the Soviet army. The Hosseinis sought and were granted political asylum in the United States. In September of 1980, Hosseini’s family moved to San Jose, California. They lived on welfare and food stamps for a short while, as they had lost all of their property in Afghanistan. His father took multiple jobs and managed to get his family off welfare. Hosseini graduated from high school in 1984 and enrolled at Santa Clara University where he earned a bachelor’s degree in Biology in 1988. The following year, he entered the University of California-San Diego’s School of Medicine, where he earned a Medical Degree in 1993. He completed his residency at Cedars-Sinai Hospital in Los Angeles and began practicing Internal Medicine in 1996. His first love, however, has always been writing. Hosseini has vivid, and fond, memories of peaceful pre-Soviet era Afghanistan, as well as of his personal experiences with Afghan Hazaras. One Hazara in particular was a thirty-year-old man named Hossein Khan, who worked for the Hosseinis when they were living in Iran. When Hosseini was in the third grade, he taught Khan to read and write. Though his relationship with Hossein Khan was brief and rather formal, Hosseini always remembered the fondness that developed between them. In 2006, Hosseini was named a goodwill envoy to the UNHCR, The United Nations Refugee Agency.\",\n    \"employee_id\": \"359f60ec-e1eb-4f26-a29f-4c271b2c5b7a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/{{authors}}/createAuthor",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"{{authors}}",
+								"createAuthor"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Authors",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AuthorizationPrefiz}} {{employeeToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/{{authors}}/authors",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"{{authors}}",
+						"authors"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Authors",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationPrefiz}} {{employeeToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/{{authors}}/authors",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"{{authors}}",
+								"authors"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Create Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AuthorizationPrefiz}} {{employeeToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Men Are from Mars, Women Are from Venus\",\n\"ISBN\": \"0060574216\",\n\"summary\": \"Once upon a time Martians and Venusians met, fell in love, and had happy relationships together because they respected and accepted their differences. Then they came to Earth and amnesia set in: they forgot they were from different planets. Based on years of successful counseling of couples and individuals, Men Are from Mars, Women Are from Venus has helped millions of couples transform their relationships. Now viewed as a modern classic, this phenomenal book has helped men and women realize how different they really are and how to communicate their needs in such a way that conflict doesn't arise and intimacy is given every chance to grow!!!!\",\n\"publisher\": \"Harper Paperbacks\",\n\"sources\": \"Harper Paperbacks\",\n\"price\": \"15.49\",\n\"no_of_copies\": \"368\",\n\"employee_id\": \"359f60ec-e1eb-4f26-a29f-4c271b2c5b7a\",\n\"author_id\": \"f04f396d-736c-412e-b495-c5dda413626d\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/books/createBook",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"books",
+						"createBook"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Book",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationPrefiz}} {{employeeToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Men Are from Mars, Women Are from Venus\",\n\"ISBN\": \"0060574216\",\n\"summary\": \"Once upon a time Martians and Venusians met, fell in love, and had happy relationships together because they respected and accepted their differences. Then they came to Earth and amnesia set in: they forgot they were from different planets. Based on years of successful counseling of couples and individuals, Men Are from Mars, Women Are from Venus has helped millions of couples transform their relationships. Now viewed as a modern classic, this phenomenal book has helped men and women realize how different they really are and how to communicate their needs in such a way that conflict doesn't arise and intimacy is given every chance to grow!!!!\",\n\"publisher\": \"Harper Paperbacks\",\n\"sources\": \"Harper Paperbacks\",\n\"price\": \"15.49\",\n\"no_of_copies\": \"368\",\n\"employee_id\": \"359f60ec-e1eb-4f26-a29f-4c271b2c5b7a\",\n\"author_id\": \"f04f396d-736c-412e-b495-c5dda413626d\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/books/createBook",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"books",
+								"createBook"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AuthorizationPrefiz}} {{employeeToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/books/books",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"books",
+						"books"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Books",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationPrefiz}} {{employeeToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/books/books",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"books",
+								"books"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
